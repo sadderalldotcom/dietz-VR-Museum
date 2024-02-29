@@ -14,11 +14,13 @@ public class DistanceTrigger : MonoBehaviour
     [SerializeField] private Transform target;
     private float timer; 
     private Animator anim;
+    private AudioSource aud;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = this.GetComponent<Animator>();
+        aud = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class DistanceTrigger : MonoBehaviour
     void Activate()
     {
         anim.SetTrigger(triggerName);
+        aud.Play();
         timer = resetDelay;
     }
     void OnDrawGizmoSelected()
